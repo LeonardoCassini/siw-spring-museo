@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles(title)">
+<meta charset="UTF-8" />
+<link th:href="@{/css/fogliostile.css}" rel="stylesheet">
+<title th:text="${title}"></title>
+</head>
+<body>
+	<header th:fragment="intestazione">
+		<img class="logo" th:src="@{/immagini/museoLogo.png}"> <span
+			class="titolo">Museo</span>
+	</header>
+	<nav th:fragment="barraNavigazione">
+		<ul>
+			<li><a th:href="@{/home}">Home</a></li>
+			<li><a th:href="@{/collezioni}">Collezioni</a></li>
+			<li><a th:href="@{/artisti}">Artisti</a></li>
+			<li><a th:href="@{/anni}">Anni</a></li>
+			<li><a th:href="@{/informazioni}">Informazioni</a></li>
+			<li><a class="posDestra" th:href="@{/login}">Login</a></li>
+		</ul>
+	</nav>
+	<footer th:fragment="fondo">
+		<a th:href="@{/home}">Home</a> <a th:href="@{/collezioni}">Collezioni</a>
+		<a th:href="@{/artisti}">Artisti</a> <a th:href="@{/periodi}">Periodi</a>
+		<a th:href="@{/informazioni}">Informazioni</a> <a
+			href="javascript:history.go(-1)"
+			onMouseOver="self.status=document.referrer;return true"> Torna
+			indietro</a>
+	</footer>
+</body>
+</html>

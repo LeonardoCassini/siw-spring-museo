@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(home)"></head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav>
+		<ul>
+			<li><a th:href="@{/default}">Home</a></li>
+			<li class="posDestra"><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+	</nav>
+	
+	<ul>
+			<li th:object="${curatori}" th:each="curatori : ${curatori}">
+				<div th:text="*{nome}+' '+*{cognome}"></div>
+				<form  class="centrale" action="#" th:action="@{/cancCuratore/{matricola} (matricola=*{matricola})}"  method="post">
+					<input type="hidden" value="Cancella"/>
+                    <button type="submit"value="Cancella">Cancella</button>
+				</form>
+				<form  class="centrale" action="#" th:action="@{/updCuratore/{matricola} (matricola=*{matricola})}"  method="get">
+					<input type="hidden" value="modifica"/>
+                    <button type="submit"value="modifica">Modifica</button>
+				</form>
+			</li>
+		</ul>
+		
+		
+</body>
+</html>

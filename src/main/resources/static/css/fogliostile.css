@@ -1,0 +1,118 @@
+body
+{
+  margin: 0;
+  background-image:url(/immagini/sfondo2.jpg);
+  background-size:100%;
+  background-attachment:fixed;
+}
+header
+{
+  height:auto;
+}
+.titolo
+{
+	font-size:350%;
+	color:black;
+}
+
+.logo
+{
+	bottom:10px;
+  	width:50px;
+  	height:50px;
+}
+
+a
+{
+	color:white;
+	text-decoration:none;
+}
+
+nav
+{
+    padding-bottom: 15px;
+}
+
+nav > ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:red;
+}
+
+nav > ul > li > a
+{
+    display: block;
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+a:hover 
+{
+    background-color: #953553;
+}
+
+.posDestra
+{
+	float: right;
+}
+
+ul
+{
+	list-style-type: none;
+}
+
+footer
+{
+	height:auto;
+	background-color:red;
+	padding: 2px 17px;
+}
+footer>a
+{
+	padding:2px;
+}
+
+.centrale
+{
+	position:relative;
+	left:45%;
+	right:45%;
+	bottom:50%;
+}
+
+.scritteCentrali
+{
+	position:relative;
+	left:200px;
+	right:200px;
+	bottom:300px;
+	top:300px;
+}
+.descrizioni
+{
+	width:300px;
+	height:400px;
+}
+
+#flex-container 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:500px;
+  margin:20px;
+  flex-direction:row;
+}
+.flex-item
+{
+	margin:5px;
+	width:500px;
+	height:500px;
+}

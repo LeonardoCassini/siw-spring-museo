@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(informazioni)"></head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: barraNavigazione"></nav>
+	<ul>
+	<li><strong>ORARI DI APERTURA</strong></li>
+	<li>Da Lunedi al Venerdi: 9:00-18:00</li>
+	<li>Weekend: 10:30-19:00</li>
+	<li>Festivi: 9:00-14:00</li>
+	<li>------------------------</li>
+	<li><strong>TARIFFE</strong></li>
+	<li><strong>intero</strong>.......................15 euro</li>
+	<li><strong>ridotto</strong>......................12 euro</li>
+	<li>Over 70</li>
+	<li><strong>ridotto studenti</strong>.......3 euro</li>
+	<li>15-18 anni e universitari</li>
+	<li><strong>Famiglie</strong>...................30 euro</li>
+	<li>2 adulti + 2 minori</li>
+	<li><strong>Gratuito</strong></li>
+	<li>0-5 anni e invalidi</li>
+	<li>------------------------</li>
+	<li><strong>CONTATTI</strong></li>
+	<li><strong>indirizzo: </strong> Via Vito Volterra, 62 </li>
+	<li><strong>email: </strong> museosiw@gmail.com</li>
+	<li><strong>numero di telefono: </strong> 06123456</li>
+	</ul>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

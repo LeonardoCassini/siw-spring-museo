@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(home)"></head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: barraNavigazione"></nav>
+	<div id="flex-container">
+		<img class="flex-item" src="/immagini/girasoli.jpg" alt="girasoli">
+		<img class="flex-item" src="/immagini/notteStellata.jpg" alt="notte">
+	</div>
+	<div id="flex-container">
+		<img class="flex-item" src="/immagini/fireflies.jpg" alt="giud">
+		<img class="flex-item" src="/immagini/paintingSaints.jpg"
+			alt="girasoli">
+	</div>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

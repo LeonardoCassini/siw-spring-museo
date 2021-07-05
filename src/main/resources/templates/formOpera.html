@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(home)"></head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav>
+		<ul>
+			<li><a th:href="@{/admin/home}">Home</a></li>
+			<li><a th:href="@{/modifica}">Modifica</a></li>
+			<li><a th:href="@{/inserisci}">Inserisci</a></li>
+			<li class="posDestra"><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+	</nav>
+	
+	<form th:object="${opera}" th:action="@{/modificaOpera}" method="get">		
+			<div>
+				<span>titolo:</span>
+				<span><input type="text" name="opera" th:value="${opera}"/></span>
+			</div>		
+			<div>
+				<span><input type="submit" value="Cerca"/> </span><!--  <span><button type="submit" value="Cerca">Cerca</button></span>-->
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(inserimentoCollezione)"></head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav>
+		<ul>
+			<li><a th:href="@{/default}">Home</a></li>
+			<li class="posDestra"><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+	</nav>
+	
+	<form class="centrale" th:action="@{/inserisciCollezione}" method="POST"
+		th:object="${collezione}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+              <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+              </div>
+		<div>
+		<div>
+				<span>nome*</span>
+				<div>
+					<input type="text" th:field="*{nome}" />
+					<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+				</div>
+			</div>
+			
+			<div>
+				<span>descrizione*</span>
+				<div>
+					<input type="text" th:field="*{descrizione}" />
+					<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+				</div>
+			</div>
+			<div>
+				<span>curatore</span>
+				<div>
+					<div>
+					<select th:field="*{curatore.matricola}">
+                         <option value="0">Curatore</option>
+                         <option th:each="curatore : ${curatore}"
+                                 th:value="${curatore.matricola}"
+                                 th:selected="${curatore.matricola eq lastselected}"
+                                 th:text="|${curatore.nome} ${curatore.cognome}|">
+                         </option>
+                </select>
+				</div>
+				</div>
+			</div>
+			<div>
+				<span><button type="submit">Invio</button></span>
+			</div>
+			<div>*Campi obbligatori</div>
+			</div>
+			</form>
+</body>
+</html>

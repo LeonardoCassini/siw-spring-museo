@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(collezione)"></head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: barraNavigazione"></nav>
+	<div th:object="${collezione}">
+		<ul>
+			<li th:text="'Collezione: '+*{nome}"></li>
+			<li th:text="'A cura di: '+*{curatore.nome}+' '+*{curatore.cognome}"></li>
+			<li th:text=*{descrizione}></li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li th:each="opere : ${collezione.opere}"><a href="opera.html"
+				th:href="@{'/opera' + '/' + ${opere.id}}"
+				th:text="|${opere.titolo}|">titolo</a> <a href="artista.html"
+				th:href="@{'/artista' + '/' + ${opere.artista.id}}"
+				th:if="${opere.artista.cognome}"
+				th:text="| ${opere.artista.nome} ${opere.artista.cognome}|">nome cognome</a> 
+				<a th:unless="${opere.artista.cognome}" href="artista.html"
+				th:href="@{'/artista' + '/' + ${opere.artista.id}}"
+				th:text="| ${opere.artista.nome}|"> </a>
+		</ul>
+	</div>
+
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

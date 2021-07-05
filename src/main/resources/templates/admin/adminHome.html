@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(home)"></head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav>
+		<ul>
+			<li><a th:href="@{/default}">Home</a></li>
+			<li class="posDestra"><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+	</nav>
+	<div>
+	<strong>Benvenuto nella zona dedicata agli admin</strong>
+	</div>
+	<div class="centrale">
+	<strong>Queste sono le operazioni disponibli</strong>
+	</div>
+	<div class="centrale">
+	<strong>Inserimento</strong>
+	<ul>
+	<li><a th:href="@{/inserisciOpera}">Opera</a></li>
+	<li><a th:href="@{/inserisciArtista}">Artista</a></li>
+	<li><a th:href="@{/inserisciCollezione}">Collezione</a></li>
+	<li><a th:href="@{/inserisciCuratore}">Curatore</a></li>
+	</ul>
+	</div>
+	<div class="centrale">
+	<strong>Modifica o Cancellazione</strong>
+	<ul>
+	<li><a th:href="@{/modificaOpera}">Opera</a></li>
+	<li><a th:href="@{/modificaArtista}">Artista</a></li>
+	<li><a th:href="@{/modificaCollezione}">Collezione</a></li>
+	<li><a th:href="@{/modificaCuratore}">Curatore</a></li>
+	</ul>
+	</div>
+</body>
+</html>

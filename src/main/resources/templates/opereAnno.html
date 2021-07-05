@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(periodi)"></head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: barraNavigazione"></nav>
+	<ul>
+		<li th:each="opere : ${opereAnno}">
+			<div>
+				<img height="20%" width="20%"
+					th:src="@{${'/immagini/' + opere.immagine + '.jpg'}}" />
+			</div> 
+			<a href="opera.html" th:href="@{'/opera' + '/' + ${opere.id}}"
+			th:text="|${opere.titolo}|">titolo</a> 
+			<a href="artista.html"
+			th:if="${opere.artista.cognome}"
+			th:href="@{'/artista' + '/' + ${opere.artista.id}}"
+			th:text="|  Di ${opere.artista.nome}  ${opere.artista.cognome}|">nome e cognome</a>
+			<div th:unless="${opere.artista.cognome}">
+				<a href="artista.html"
+					th:href="@{'/artista' + '/' + ${opere.artista.id}}"
+					th:text="' Di '+${opere.artista.nome}"> </a>
+					</div>
+		</li>
+	</ul>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

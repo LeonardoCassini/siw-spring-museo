@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(artista)"></head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: barraNavigazione"></nav>
+	<div th:object="${artista}">
+		<ul>
+		<li th:if="*{cognome}" th:text="'Nome: '+*{nome}+' '+*{cognome}"></li>
+		<li th:unless="*{cognome}" th:text="'Nome: '+*{nome}"></li>
+		<li th:if="*{dataNascita}" th:text="'Nato il '+*{dataNascita}+' a '+*{luogoNascita}"></li>
+		<li th:unless="*{dataNascita}" th:text="'Nato a '+*{luogoNascita}"></li>
+		<li th:if="*{dataMorte}" th:text="'morto il '+*{dataMorte}+' a '+*{luogoMorte}"></li>
+		<li th:text="'nazionalità: '+*{nazionalita}"></li>
+		<li th:text=*{biografia}></li>
+		<li  th:each="opere : *{opere}">
+		<div><img height="20%" width="20%" th:src="@{${'/immagini/' + opere.immagine + '.jpg'}}"/></div>
+		<a href="opera.html"
+				th:href="@{'/opera' + '/' + ${opere.id}}"
+				th:text="|${opere.titolo}|">titolo</a> 
+		</li>
+		</ul>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

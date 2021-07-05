@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(opera)"></head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: barraNavigazione"></nav>
+	<div th:object="${opera}">
+	<ul>
+	<li><strong  class="titolo" th:text=*{titolo}></strong></li>
+	<li><img height="20%" width="20%" th:src="@{${'/immagini/' + opera.immagine + '.jpg'}}"/></li>
+	<li  th:text=*{descrizione}></li>
+	<li><a href="artista.html"
+	th:if="*{artista.cognome}"
+				th:href="@{'/artista' + '/' + ${opera.artista.id}}"
+				th:text="*{artista.nome}+' '+*{artista.cognome}">nome e cognome</a>
+				<div th:unless="*{artista.cognome}">
+				<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.artista.id}}"
+					th:text="*{artista.nome}"> </a>
+			</div></li>
+	</ul>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

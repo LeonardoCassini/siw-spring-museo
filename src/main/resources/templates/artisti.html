@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(artista)"></head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: barraNavigazione"></nav>
+	<ul>
+		<li th:each="artista : ${artisti}"><a href="artista.html"
+			th:href="@{'/artista' + '/' + ${artista.id}}"
+			th:if="${artista.cognome}"
+			th:text="|${artista.nome} ${artista.cognome}|">nome cognome</a>
+			<div th:unless="${artista.cognome}">
+				<a href="artista.html" th:href="@{'/artista' + '/' + ${artista.id}}"
+					th:text="|${artista.nome}|"> </a>
+			</div></li>
+
+	</ul>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>
